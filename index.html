@@ -8,10 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --black: #111; --white: #fafafa; --gray: #888; --light: #f2f2f0;
-    --accent: #c8a96e; --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'DM Sans', sans-serif;
-  }
+  :root { --black: #111; --white: #fafafa; --gray: #888; --light: #f2f2f0; --accent: #c8a96e; --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'DM Sans', sans-serif; }
   html { scroll-behavior: smooth; }
   body { font-family: var(--sans); background: var(--white); color: var(--black); font-size: 14px; font-weight: 300; }
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 60px; background: rgba(250,250,250,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid #e5e5e5; }
@@ -29,19 +26,16 @@
   .btn-primary:hover { background: var(--accent); }
   .btn-outline { display: inline-block; padding: 1rem 2.5rem; border: 1px solid var(--black); color: var(--black); text-decoration: none; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s; }
   .btn-outline:hover { background: var(--black); color: var(--white); }
-  .hero-image { background: var(--light); position: relative; overflow: hidden; }
+  .hero-image { position: relative; overflow: hidden; }
   .hero-image img { width: 100%; height: 100%; object-fit: cover; }
   .hero-tag { position: absolute; bottom: 3rem; right: 3rem; background: var(--white); padding: 1rem 1.5rem; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
   .marquee-bar { background: var(--black); color: var(--white); padding: 0.9rem 0; overflow: hidden; white-space: nowrap; }
-  .marquee-track { display: inline-block; animation: marquee 20s linear infinite; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
+  .marquee-track { display: inline-block; animation: marquee 22s linear infinite; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
   @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   .section { padding: 6rem 5rem; }
   .section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 3rem; }
   .section-title { font-family: var(--serif); font-size: 2.5rem; font-weight: 300; }
-  .section-link { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); text-decoration: none; border-bottom: 1px solid var(--gray); padding-bottom: 1px; }
-  .filter-bar { display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
-  .filter-btn { padding: 0.6rem 1.5rem; border: 1px solid #ddd; background: none; cursor: pointer; font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.2s; color: var(--black); }
-  .filter-btn.active, .filter-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+  .section-sub { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); }
   .products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
   .product-card { cursor: pointer; }
   .product-image { aspect-ratio: 3/4; background: var(--light); position: relative; overflow: hidden; margin-bottom: 1rem; }
@@ -50,24 +44,22 @@
   .product-tag { position: absolute; top: 1rem; left: 1rem; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.75rem; font-weight: 500; z-index: 1; }
   .tag-new { background: var(--black); color: var(--white); }
   .tag-sale { background: #d4574f; color: var(--white); }
-  .product-name { font-size: 13px; letter-spacing: 0.03em; margin-bottom: 0.4rem; font-weight: 400; }
-  .product-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
-  .product-price { font-size: 13px; font-weight: 500; }
-  .product-price-old { font-size: 12px; color: var(--gray); text-decoration: line-through; margin-left: 0.5rem; }
-  .buy-btn { width: 100%; padding: 0.7rem; background: var(--black); color: var(--white); border: none; cursor: pointer; font-family: var(--sans); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; transition: background 0.2s; }
+  .tag-hot { background: var(--accent); color: var(--white); }
+  .product-name { font-size: 13px; margin-bottom: 0.3rem; font-weight: 400; }
+  .product-price { font-size: 13px; font-weight: 500; margin-bottom: 0.75rem; }
+  .buy-btn { width: 100%; padding: 0.75rem; background: var(--black); color: var(--white); border: none; cursor: pointer; font-family: var(--sans); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; transition: background 0.2s; }
   .buy-btn:hover { background: var(--accent); }
-  .profit-badge { font-size: 10px; color: #2a7a2a; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 500; align-items: center; justify-content: center; }
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 500; align-items: center; justify-content: center; }
   .modal-overlay.open { display: flex; }
-  .modal { background: var(--white); width: 90%; max-width: 500px; padding: 2.5rem; position: relative; max-height: 90vh; overflow-y: auto; }
+  .modal { background: var(--white); width: 90%; max-width: 520px; padding: 2.5rem; position: relative; max-height: 92vh; overflow-y: auto; }
   .modal-close { position: absolute; top: 1rem; right: 1.5rem; background: none; border: none; font-size: 20px; cursor: pointer; }
   .modal-title { font-family: var(--serif); font-size: 1.8rem; font-weight: 300; margin-bottom: 0.3rem; }
   .modal-price { font-size: 1.1rem; font-weight: 500; color: var(--accent); margin-bottom: 1.5rem; }
   .modal label { display: block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.4rem; margin-top: 1rem; }
-  .modal input, .modal select { width: 100%; padding: 0.8rem 1rem; border: 1px solid #ddd; font-family: var(--sans); font-size: 13px; background: var(--white); outline: none; }
+  .modal input, .modal select { width: 100%; padding: 0.8rem 1rem; border: 1px solid #ddd; font-family: var(--sans); font-size: 13px; background: var(--white); outline: none; transition: border-color 0.2s; }
   .modal input:focus, .modal select:focus { border-color: var(--black); }
   .modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .payfast-btn { width: 100%; margin-top: 1.5rem; padding: 1rem; background: #0099CC; color: var(--white); border: none; cursor: pointer; font-family: var(--sans); font-size: 13px; font-weight: 500; transition: background 0.2s; }
+  .payfast-btn { width: 100%; margin-top: 1.5rem; padding: 1rem; background: #0099CC; color: var(--white); border: none; cursor: pointer; font-family: var(--sans); font-size: 13px; font-weight: 500; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
   .payfast-btn:hover { background: #007aa3; }
   .payfast-note { font-size: 11px; color: var(--gray); text-align: center; margin-top: 0.75rem; }
   .promo-banner { background: var(--black); color: var(--white); display: grid; grid-template-columns: 1fr 1fr; min-height: 460px; }
@@ -78,7 +70,7 @@
   .btn-light { display: inline-block; padding: 1rem 2.5rem; border: 1px solid var(--white); color: var(--white); text-decoration: none; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; transition: all 0.3s; }
   .btn-light:hover { background: var(--white); color: var(--black); }
   .promo-image { overflow: hidden; }
-  .promo-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+  .promo-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
   .newsletter { background: var(--light); padding: 5rem; text-align: center; }
   .newsletter-title { font-family: var(--serif); font-size: 2.8rem; font-weight: 300; font-style: italic; margin-bottom: 1rem; }
   .newsletter-sub { color: var(--gray); margin-bottom: 2rem; }
@@ -98,10 +90,11 @@
   .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--black); color: var(--white); padding: 0.9rem 2rem; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; z-index: 600; transition: transform 0.3s; pointer-events: none; }
   .toast.show { transform: translateX(-50%) translateY(0); }
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; } .hero-image { min-height: 50vw; }
+    .hero { grid-template-columns: 1fr; } .hero-image { min-height: 60vw; }
     .hero-text { padding: 3rem 2rem; } .products-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } .section { padding: 4rem 2rem; }
     .promo-banner { grid-template-columns: 1fr; } nav { padding: 0 1.5rem; } .nav-links { display: none; }
+    .newsletter { padding: 3rem 2rem; }
   }
 </style>
 </head>
@@ -156,7 +149,7 @@
     </div>
   </div>
   <div class="hero-image">
-    <img src="https://ae-pic-a1.aliexpress-media.com/kf/S1e0e3e3c36f74fb18d52f7c3b3c1e5c0Y.jpg_640x640.jpg" alt="Campus Fashion" onerror="this.style.background='#f2f2f0';this.src=''">
+    <img src="https://ae01.alicdn.com/kf/Se0c1ec10b87344adb8cf527238979afae.jpg" alt="Campus Fashion">
     <div class="hero-tag">Free delivery over R500</div>
   </div>
 </section>
@@ -165,20 +158,18 @@
   <span class="marquee-track">Free delivery on orders over R500 &nbsp;·&nbsp; New arrivals weekly &nbsp;·&nbsp; Student discount: CAMPUS10 &nbsp;·&nbsp; Free returns within 30 days &nbsp;·&nbsp; Free delivery on orders over R500 &nbsp;·&nbsp; New arrivals weekly &nbsp;·&nbsp; Student discount: CAMPUS10 &nbsp;·&nbsp; Free returns within 30 days &nbsp;·&nbsp;</span>
 </div>
 
-<!-- HOODIES -->
 <section class="section" id="hoodies">
   <div class="section-header">
     <h2 class="section-title">Hoodies</h2>
-    <span class="section-link">5 styles</span>
+    <span class="section-sub">5 styles</span>
   </div>
   <div class="products-grid" id="hoodiesGrid"></div>
 </section>
 
-<!-- BOTTOMS -->
 <section class="section" id="bottoms" style="padding-top:0">
   <div class="section-header">
     <h2 class="section-title">Bottoms</h2>
-    <span class="section-link">3 styles</span>
+    <span class="section-sub">3 styles</span>
   </div>
   <div class="products-grid" id="bottomsGrid"></div>
 </section>
@@ -187,28 +178,26 @@
   <div class="promo-text">
     <p class="promo-eyebrow">Student Exclusive</p>
     <h2 class="promo-title">10% off for students, always.</h2>
-    <p class="promo-desc">Use code CAMPUS10 at checkout. No expiry, no limits — because you deserve it.</p>
+    <p class="promo-desc">Use code CAMPUS10 at checkout. No expiry, no limits.</p>
     <a href="#hoodies" class="btn-light">Shop the Discount</a>
   </div>
   <div class="promo-image">
-    <img src="https://ae-pic-a1.aliexpress-media.com/kf/Sfb0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_640x640.jpg" alt="promo" onerror="this.parentElement.style.background='#1e1e1e'">
+    <img src="https://ae01.alicdn.com/kf/S913fe193e93640699c0dc733a9f1ac100.jpg" alt="promo">
   </div>
 </section>
 
-<!-- BLAZERS -->
 <section class="section" id="blazers">
   <div class="section-header">
     <h2 class="section-title">Blazers</h2>
-    <span class="section-link">4 styles</span>
+    <span class="section-sub">4 styles</span>
   </div>
   <div class="products-grid" id="blazersGrid"></div>
 </section>
 
-<!-- GRAPHIC TEES -->
 <section class="section" id="tees" style="padding-top:0">
   <div class="section-header">
     <h2 class="section-title">Graphic Tees</h2>
-    <span class="section-link">4 styles</span>
+    <span class="section-sub">4 styles</span>
   </div>
   <div class="products-grid" id="teesGrid"></div>
 </section>
@@ -244,57 +233,51 @@ const MERCHANT_KEY = 'r07ae3h1czqzh';
 const BASE_URL = 'https://lindaniowen163-sys.github.io';
 
 const hoodies = [
-  { id:1, name:'New York Empire City Hoodie', price:449, cost:247, tag:'new', img:'https://ae-pic-a1.aliexpress-media.com/kf/S1e0e3e3c36f74fb18d52f7c3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005001685168536.html' },
-  { id:2, name:'Mix & Match Cartoon Hoodie', price:499, cost:293, tag:'new', img:'https://ae-pic-a1.aliexpress-media.com/kf/S2b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005009717825815.html' },
-  { id:3, name:'Smiley Face Couple Hoodie', price:449, cost:290, tag:'', img:'https://ae-pic-a1.aliexpress-media.com/kf/S3b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005009403856362.html' },
-  { id:4, name:'Korean Zip-Up Hoodie', price:499, cost:298, tag:'hot', img:'https://ae-pic-a1.aliexpress-media.com/kf/S4b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005007568488733.html' },
-  { id:5, name:"Men's American Cardigan", price:549, cost:336, tag:'new', img:'https://ae-pic-a1.aliexpress-media.com/kf/S5b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005010420384633.html' },
+  { id:1, name:'New York Empire City Hoodie', price:449, tag:'new', img:'https://ae01.alicdn.com/kf/Sd92e80fb868c4c4c954a491ec7a9cb9dH.jpg' },
+  { id:2, name:'Mix & Match Cartoon Hoodie', price:499, tag:'hot', img:'https://ae01.alicdn.com/kf/Se94e0fd9cc694c13a854d4dfcd5069d8j.jpg' },
+  { id:3, name:'Smiley Face Couple Hoodie', price:449, tag:'', img:'https://ae01.alicdn.com/kf/S605a05880c704347a5f4d6d5bcb669fdB.jpg' },
+  { id:4, name:'Korean Zip-Up Hoodie', price:499, tag:'hot', img:'https://ae01.alicdn.com/kf/S9027f90d88ae440f8024969cb3635c28X.jpg' },
+  { id:5, name:"Men's American Cardigan", price:549, tag:'new', img:'https://ae01.alicdn.com/kf/Sf345b8ec00ff43d28ee28dc9deea19cab.jpg' },
 ];
 
 const bottoms = [
-  { id:6, name:'Casual Straight Leg Sweatpants', price:399, cost:268, tag:'new', img:'https://ae-pic-a1.aliexpress-media.com/kf/S6b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005011818165700.html' },
-  { id:7, name:'Y2K Wide Leg Ripped Jeans', price:299, cost:166, tag:'sale', img:'https://ae-pic-a1.aliexpress-media.com/kf/S7b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005010564382868.html' },
-  { id:8, name:'Hip Hop Print Y2K Jeans', price:599, cost:361, tag:'hot', img:'https://ae-pic-a1.aliexpress-media.com/kf/S8b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005011822167189.html' },
+  { id:6, name:'Casual Straight Leg Sweatpants', price:399, tag:'new', img:'https://ae01.alicdn.com/kf/S2a7014b1824d4e6ea2224028198cb27eN.jpg' },
+  { id:7, name:'Y2K Wide Leg Ripped Jeans', price:299, tag:'sale', img:'https://ae01.alicdn.com/kf/S6526c943dc084d3f81d03d2ed634b07cX.png' },
+  { id:8, name:'Hip Hop Print Y2K Jeans', price:599, tag:'hot', img:'https://ae01.alicdn.com/kf/Sb7c12e293f1e4984b9be9b958939d33aS.jpg' },
 ];
 
 const blazers = [
-  { id:9, name:'Women Short Casual Blazer', price:349, cost:160, tag:'sale', img:'https://ae-pic-a1.aliexpress-media.com/kf/S9b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005008124952949.html' },
-  { id:10, name:"Women's Spring Street Blazer", price:899, cost:525, tag:'new', img:'https://ae-pic-a1.aliexpress-media.com/kf/S10b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005011830937893.html' },
-  { id:11, name:'Rivet Decorative Loose Blazer', price:999, cost:582, tag:'new', img:'https://ae-pic-a1.aliexpress-media.com/kf/S11b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005009818221871.html' },
-  { id:12, name:'Waist-Tie Belted Blazer', price:549, cost:308, tag:'', img:'https://ae-pic-a1.aliexpress-media.com/kf/S12b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005010052301908.html' },
+  { id:9,  name:'Women Short Casual Blazer', price:349, tag:'sale', img:'https://ae01.alicdn.com/kf/S9d173778a3414d4ebcbb3e6d4a2f273a5.jpg' },
+  { id:10, name:"Women's Spring Street Blazer", price:899, tag:'new', img:'https://ae01.alicdn.com/kf/S913fe193e93640699c0dc733a9f1ac100.jpg' },
+  { id:11, name:'Rivet Decorative Loose Blazer', price:999, tag:'new', img:'https://ae01.alicdn.com/kf/Se0c1ec10b87344adb8cf527238979afae.jpg' },
+  { id:12, name:'Waist-Tie Belted Blazer', price:549, tag:'', img:'https://ae01.alicdn.com/kf/S4594cfd861b04d69925e7bba82c2e833N.jpg' },
 ];
 
 const tees = [
-  { id:13, name:'"Jesus Is King" Graphic Tee', price:349, cost:205, tag:'new', img:'https://ae-pic-a1.aliexpress-media.com/kf/S13b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005011968984405.html' },
-  { id:14, name:'Gojo Satoru Anime Tee', price:449, cost:267, tag:'hot', img:'https://ae-pic-a1.aliexpress-media.com/kf/S14b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005009332593113.html' },
-  { id:15, name:'COOLMIND Cat Acid Wash Tee', price:399, cost:229, tag:'hot', img:'https://ae-pic-a1.aliexpress-media.com/kf/S15b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005008786232189.html' },
-  { id:16, name:'Michael Jackson Graphic Tee', price:349, cost:208, tag:'new', img:'https://ae-pic-a1.aliexpress-media.com/kf/S16b0c2e3f7e554e3d8c2e5e3b3c1e5c0Y.jpg_480x480.jpg', link:'https://aliexpress.com/item/1005012108258399.html' },
+  { id:13, name:'"Jesus Is King" Graphic Tee', price:349, tag:'new', img:'https://ae01.alicdn.com/kf/S8046dda4b88c4a19a168052dabe155deU.jpg' },
+  { id:14, name:'Gojo Satoru Anime Tee', price:449, tag:'hot', img:'https://ae01.alicdn.com/kf/Sac5e549067784df9b7fc3bf46a4bebe00.jpg' },
+  { id:15, name:'COOLMIND Cat Acid Wash Tee', price:399, tag:'hot', img:'https://ae01.alicdn.com/kf/Sbe5f5e0cd2874fb89e7f29805e3b4586N.jpg' },
+  { id:16, name:'Michael Jackson Graphic Tee', price:349, tag:'new', img:'https://ae01.alicdn.com/kf/S4a0944ac6d7146f2abec22bdf0dbcd9aQ.jpg' },
 ];
 
+const allProducts = [...hoodies, ...bottoms, ...blazers, ...tees];
 let currentProduct = null;
-
-const tagLabels = { new:'New', sale:'Sale', hot:'🔥 Hot' };
-const tagClasses = { new:'tag-new', sale:'tag-sale', hot:'tag-new' };
 
 function renderGrid(products, containerId) {
   const grid = document.getElementById(containerId);
+  const tagClass = { new:'tag-new', sale:'tag-sale', hot:'tag-hot' };
   grid.innerHTML = products.map(p => `
     <div class="product-card">
       <div class="product-image">
-        <img src="${p.img}" alt="${p.name}" onerror="this.parentElement.style.background='#e8e8e6';this.style.display='none'">
-        ${p.tag ? `<span class="product-tag ${tagClasses[p.tag]}">${tagLabels[p.tag]}</span>` : ''}
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        ${p.tag ? `<span class="product-tag ${tagClass[p.tag]}">${p.tag === 'hot' ? '🔥 Hot' : p.tag.charAt(0).toUpperCase()+p.tag.slice(1)}</span>` : ''}
       </div>
       <p class="product-name">${p.name}</p>
-      <p class="profit-badge">You earn ~R${p.price - p.cost} profit per sale</p>
-      <div class="product-meta">
-        <span class="product-price">R${p.price}</span>
-      </div>
+      <p class="product-price">R${p.price}</p>
       <button class="buy-btn" onclick="openModal(${p.id})">Buy Now</button>
     </div>
   `).join('');
 }
-
-const allProducts = [...hoodies, ...bottoms, ...blazers, ...tees];
 
 function openModal(id) {
   currentProduct = allProducts.find(p => p.id === id);
@@ -328,7 +311,7 @@ function processPayment() {
     item_name: currentProduct.name,
     item_description: `Size: ${size}, Colour: ${colour}. Deliver to: ${address}`,
   };
-  for (const [k, v] of Object.entries(fields)) {
+  for (const [k,v] of Object.entries(fields)) {
     const i = document.createElement('input'); i.type='hidden'; i.name=k; i.value=v; form.appendChild(i);
   }
   document.body.appendChild(form); form.submit();
